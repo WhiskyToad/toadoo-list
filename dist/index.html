@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" href = style.css type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+    <title>WhiskyToad ToaDoo</title>
+</head>
+<body>
+    <header id = "header">
+        <div id = "menu">
+            <span>Menu</span>
+        </div>
+        <div id = "add-item">
+            <button id = "item-creator" class = "form">Task</button>
+            <input type="text" id = "title-creator" placeholder="Add a new Task/Project....">
+            <button id = "item-creator" class = "new-project">Project</button>
+        </div>
+        <div id = "logo">
+            <span>ToaDoo List</span>
+        </div>
+    </header>
+    <div id = "container">
+        <div id = "form-container">
+            <form id = "task-form">
+                <h1>Description:</h1>
+                <textarea cols = "1" rows = "3" id = "task-description"></textarea>
+                <h1>Priority:</h1>
+                <div id = "priority-container">
+                    <input type = "radio" name = "priority" value = "green" id = "green">
+                    <label for = "green" id = "green-label"></label>
+                    <input type = "radio" name = "priority" id = "amber">
+                    <label for = "amber" id = "amber-label"></label> 
+                    <input type = "radio" name = "priority" id = "red">
+                    <label for = "red" id = "red-label"></label>
+                </div>
+                <div id = "form-buttons-container">
+                    <button id = "task-submit">Submit</button>
+                    <button id = "task-cancel" class = "form">Cancel</button>
+                </div>   
+                </form>             
+            </form>
+        </div>
+        <div id = "list-container">
+            <ul id = "list">
+                <li id = "list-item">
+                    <span id = "todo-priority" class = "red"></span>
+                    <span id = "todo-title">Do something!</span>
+                    <span id = "todo-category">Work</span>
+                    <div id = "todo-options">
+                        <button id = "todo-complete" class = "todo-buttons"></button>
+                        <button id = "todo-delete" class = "todo-buttons"></button>
+                    </div>
+                </li>
+                <li id = "list-item">
+                    <span id = "todo-priority" class = "green"></span>
+                    <span id = "todo-title">Do something else!</span>
+                    <span id = "todo-category">Work</span>
+                    <div id = "todo-options">
+                        <button id = "todo-complete" class = "todo-buttons"></button>
+                        <button id = "todo-delete" class = "todo-buttons"></button>
+                    </div>
+                </li>
+                <li id = "list-item">
+                    <span id = "todo-priority" class = "amber"></span>
+                    <span id = "todo-title" class = "checked">Do something else else!</span>
+                    <span id = "todo-category">Work</span>
+                    <div id = "todo-options">
+                        <button id = "todo-undo" class = "todo-buttons"></button>
+                        <button id = "todo-delete" class = "todo-buttons"></button>
+                    </div>
+                </li>
+        
+            </ul>
+        </div>
+    </div>
+    <script src = "main.js"></script>
+</body>

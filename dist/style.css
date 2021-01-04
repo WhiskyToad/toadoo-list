@@ -1,0 +1,212 @@
+body html {
+    margin:0px;
+    height:100%;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+#header {
+    width: 100%;
+    height: 100px;
+    background: url("images/header.jpg");
+    background-size: 100% auto;
+    background-position: 0% 54%;
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    width: 20%;
+    float: left;
+    font-size: 35px;
+    text-align: center;
+    color: white;
+}
+
+#add-item{
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+#add-item input[type=text]{
+    width: 500px;
+    height: 40px;
+    border-radius: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+#menu{
+    width: 20%;
+    float: right;
+    text-align: center;
+}
+#item-creator{
+    width: 100px;
+    height: 40px;
+    border-radius: 40px;
+    font-size: 24px;
+    color: white;
+    background: transparent;
+    border: none;
+}
+
+#item-creator:hover{
+    color: black;
+    background-color: White;
+}
+
+#form-container {
+    display: none;
+    margin: 0 auto;
+    width: 1061px;
+    text-align: center;
+}
+
+#task-description{
+    width:750px;
+    font-size: 20px;
+}
+
+#priority-container{
+    margin: 0 auto;
+    width: 400px;
+}
+
+#priority-container input[type="radio"] {
+    display: none;
+}
+#priority-container input[type="radio"]:checked + label {
+    border: 4px solid black;
+}
+
+#green-label {
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: green;
+}
+#amber-label {
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: orange;
+}
+#red-label {
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: red;
+}
+
+#form-buttons-container button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100px;
+    height: 35px;
+    border-radius: 20px;
+    font-size: 24px;
+}
+
+#container{
+    width: 100%;
+    height: 100vh;
+}
+
+#list-container{
+    width: 1013px;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+#list {
+    height: 90%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-size: 18px;
+    transition: 0.2s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    list-style: none;
+}
+
+ul li:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+ul li:hover {
+    background: #ddd;
+}
+
+#list-item{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+    padding: 12px 8px 12px 40px;
+}
+
+#todo-priority{
+    width: 50px;
+    height: 20px;
+    border-radius: 20px;
+}
+.red {
+    background-color: red;
+}
+.amber{
+    background-color: orange;
+}
+.green{
+    background-color: green;
+}
+
+#todo-title{
+    width: 500px;
+    margin-left: 20px;
+}
+.checked {
+    text-decoration: line-through;
+}
+
+#todo-category{
+    width:200px;
+    margin-left: 20px;
+}
+
+#todo-options{
+    width: 155px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.todo-buttons{
+    width: 38px;
+    height: 30px;
+}
+
+#todo-complete{
+    background :#f9f9f9 url("images/complete.png") no-repeat center/contain;
+    cursor: pointer;
+}
+
+#todo-undo{
+    background:#f9f9f9 url("images/undo.png") no-repeat center/contain;
+    cursor: pointer;
+}
+
+#todo-delete {
+    background: #f9f9f9 url("images/delete.png") no-repeat center/contain;
+    cursor: pointer;
+}
