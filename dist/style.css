@@ -10,16 +10,49 @@ body html {
 #header {
     width: 100%;
     height: 100px;
-    background: url("images/header.jpg");
-    background-size: 100% auto;
-    background-position: 0% 54%;
+    background-color: black;
     display: flex;
     align-items: center;
 }
+#menu-container{
+    float: left;
+    width: 20%;
+}
+
+#menu {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color:white;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  /* Rotate first bar */
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+  }
+  
+  /* Fade out the second bar */
+  .change .bar2 {
+    opacity: 0;
+  }
+  
+  /* Rotate last bar */
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+  }
 
 #logo {
+    float: right;
     width: 20%;
-    float: left;
     font-size: 35px;
     text-align: center;
     color: white;
@@ -37,13 +70,8 @@ body html {
     font-size: 20px;
     text-align: center;
 }
-#menu{
-    width: 20%;
-    float: right;
-    text-align: center;
-}
 #item-creator{
-    width: 100px;
+    width: 120px;
     height: 40px;
     border-radius: 40px;
     font-size: 24px;
@@ -57,21 +85,68 @@ body html {
     background-color: White;
 }
 
+#container{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+#sidebar {
+    height: 100vh;
+    float: left;
+    background-color: black;
+    color: white;
+    overflow: hidden;
+    padding-top: 30px;
+    transition: 0.5s;
+}
+
+#sidebar label{
+    font-size: 24px;
+}
+
+#filter-container{
+    height: 100%;
+}
+
+#content {
+    float: right;
+    width: 100%;
+    height: 100vh;
+}
 #form-container {
     display: none;
+    width: 500px;
     margin: 0 auto;
-    width: 1061px;
     text-align: center;
 }
 
 #task-description{
-    width:750px;
-    font-size: 20px;
+    width: 400px;
+    height: 100px;
 }
 
+#row-container{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+}
+
+#category-input-container{
+    float: left;
+    width: 50%;
+
+}
+
+#category-input{
+    height: 30px;
+    font-size: 15px;
+    text-align: center;
+}
 #priority-container{
+    float: right;
     margin: 0 auto;
-    width: 400px;
+    width: 50%;
 }
 
 #priority-container input[type="radio"] {
@@ -112,9 +187,23 @@ body html {
     font-size: 24px;
 }
 
-#container{
-    width: 100%;
-    height: 100vh;
+#column-header{
+    width: 1063px;
+    margin-top: 50px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#priority-header {
+    margin-left: 70px;
+}
+
+#title-header {
+    margin-left: 80px;
+}
+
+#category-header {
+    margin-left: 365px;
 }
 
 #list-container{
@@ -126,8 +215,6 @@ body html {
 #list {
     height: 90%;
     width: 100%;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -148,16 +235,18 @@ ul li:hover {
     background: #ddd;
 }
 
-#list-item{
+ul li{
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     width: 100%;
     height: 35px;
     padding: 12px 8px 12px 40px;
+    border: 1px solid black;
 }
 
 #todo-priority{
+    display: block;
     width: 50px;
     height: 20px;
     border-radius: 20px;
@@ -173,15 +262,32 @@ ul li:hover {
 }
 
 #todo-title{
-    width: 500px;
-    margin-left: 20px;
+    display: block;
+    width: 200px;
+    margin-left: 80px;
 }
 .checked {
     text-decoration: line-through;
 }
 
+.description-text {
+    visibility: hidden;
+    width: 300px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    z-index: 1;
+}
+
+ul li:hover .description-text {
+    visibility: visible;
+  }
+
 #todo-category{
-    width:200px;
+    display: block;
+    width:100px;
     margin-left: 20px;
 }
 
@@ -191,22 +297,24 @@ ul li:hover {
     display: flex;
     justify-content: space-between;
 }
-.todo-buttons{
-    width: 38px;
-    height: 30px;
-}
 
 #todo-complete{
     background :#f9f9f9 url("images/complete.png") no-repeat center/contain;
     cursor: pointer;
+    width: 38px;
+    height: 30px;
 }
 
 #todo-undo{
     background:#f9f9f9 url("images/undo.png") no-repeat center/contain;
     cursor: pointer;
+    width: 38px;
+    height: 30px;
 }
 
 #todo-delete {
     background: #f9f9f9 url("images/delete.png") no-repeat center/contain;
     cursor: pointer;
+    width: 38px;
+    height: 30px;
 }

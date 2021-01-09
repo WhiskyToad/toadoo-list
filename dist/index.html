@@ -8,70 +8,97 @@
 </head>
 <body>
     <header id = "header">
-        <div id = "menu">
-            <span>Menu</span>
+        <div id = "menu-container">
+            <div id = "menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
         </div>
         <div id = "add-item">
-            <button id = "item-creator" class = "form">Task</button>
-            <input type="text" id = "title-creator" placeholder="Add a new Task/Project....">
-            <button id = "item-creator" class = "new-project">Project</button>
+            <input type="text" id = "title-creator" placeholder="Add a new Task....">
+            <button type = "button" id = "item-creator" class = "form">Create!</button>
         </div>
         <div id = "logo">
             <span>ToaDoo List</span>
         </div>
     </header>
     <div id = "container">
-        <div id = "form-container">
-            <form id = "task-form">
-                <h1>Description:</h1>
-                <textarea cols = "1" rows = "3" id = "task-description"></textarea>
-                <h1>Priority:</h1>
-                <div id = "priority-container">
-                    <input type = "radio" name = "priority" value = "green" id = "green">
-                    <label for = "green" id = "green-label"></label>
-                    <input type = "radio" name = "priority" id = "amber">
-                    <label for = "amber" id = "amber-label"></label> 
-                    <input type = "radio" name = "priority" id = "red">
-                    <label for = "red" id = "red-label"></label>
-                </div>
-                <div id = "form-buttons-container">
-                    <button id = "task-submit">Submit</button>
-                    <button id = "task-cancel" class = "form">Cancel</button>
-                </div>   
-                </form>             
-            </form>
+        <div id = sidebar style = "width: 0px">
+            <h1>Display:</h1>
+            <input type = "radio" name = "filter" value = "all" id = "filter-button" checked = "true">
+            <label>All</label>
+            <div id = "filter-container">
+                
+            </div>
         </div>
-        <div id = "list-container">
-            <ul id = "list">
-                <li id = "list-item">
-                    <span id = "todo-priority" class = "red"></span>
-                    <span id = "todo-title">Do something!</span>
-                    <span id = "todo-category">Work</span>
-                    <div id = "todo-options">
-                        <button id = "todo-complete" class = "todo-buttons"></button>
-                        <button id = "todo-delete" class = "todo-buttons"></button>
+        <div id = "content">
+            <div id = "form-container">
+                <form id = "task-form">
+                    <h1>Description:</h1>
+                    <textarea cols = "1" rows = "3" id = "task-description" placeholder="Enter your description..."></textarea>
+                    <div id = "row-container">
+                        <div id = "category-input-container">
+                            <h1>Category:</h1>
+                            <input type="text" id = "category-input" placeholder="Category">
+                        </div>
+                        <div id = "priority-container">
+                            <h1>Priority:</h1>
+                            <input type = "radio" name = "priority" id = "green" checked="true">
+                            <label for = "green" id = "green-label"></label>
+                            <input type = "radio" name = "priority" id = "amber">
+                            <label for = "amber" id = "amber-label"></label> 
+                            <input type = "radio" name = "priority" id = "red">
+                            <label for = "red" id = "red-label"></label>
+                        </div>
                     </div>
-                </li>
-                <li id = "list-item">
-                    <span id = "todo-priority" class = "green"></span>
-                    <span id = "todo-title">Do something else!</span>
-                    <span id = "todo-category">Work</span>
-                    <div id = "todo-options">
-                        <button id = "todo-complete" class = "todo-buttons"></button>
-                        <button id = "todo-delete" class = "todo-buttons"></button>
-                    </div>
-                </li>
-                <li id = "list-item">
-                    <span id = "todo-priority" class = "amber"></span>
-                    <span id = "todo-title" class = "checked">Do something else else!</span>
-                    <span id = "todo-category">Work</span>
-                    <div id = "todo-options">
-                        <button id = "todo-undo" class = "todo-buttons"></button>
-                        <button id = "todo-delete" class = "todo-buttons"></button>
-                    </div>
-                </li>
-        
-            </ul>
+                    <div id = "form-buttons-container">
+                        <button type= "button" id = "task-submit">Submit</button>
+                        <button type = "button" id = "task-cancel" class = "form">Cancel</button>
+                    </div>   
+                    </form>             
+                </form>
+            </div>
+            <div id = "list-container">
+                <div id = "column-header">
+                    <span id = "priority-header" class = "column-header-text">Priority</span>
+                    <span id = "title-header" class = "column-header-text">Title</span>
+                    <span id = "category-header" class = "column-header-text">Category</span>
+                </div>
+                <ul id = "list">
+                    <li id = "list-item">
+                        <span id = "todo-priority" class = "red"></span>
+                        <span id = "todo-title">Do something!</span>
+                        <span class = "description-text">I'm a description! and i can also be very long bla bla bla bla bla bla sbla <br> bla bla bla</span>
+                        <span id = "todo-category">Work</span>
+                        <div id = "todo-options">
+                            <button id = "todo-complete"></button>
+                            <button id = "todo-delete" ></button>
+                        </div>
+                    </li>
+                    <li id = "list-item">
+                        <span id = "todo-priority" class = "green"></span>
+                        <span id = "todo-title">Do something else!</span>
+                        <span class = "description-text">Look! A different description</span>
+                        <span id = "todo-category">Work</span>
+                        <div id = "todo-options">
+                            <button id = "todo-complete"></button>
+                            <button id = "todo-delete" ></button>
+                        </div>
+                    </li>
+                    <li id = "list-item">
+                        <span id = "todo-priority" class = "amber"></span>
+                        <span id = "todo-title" class = "checked">Do something else else!</span>
+                        <span class = "description-text">I'm a description!</span>
+                        <span id = "todo-category">Work</span>
+                        <div id = "todo-options">
+                            <button id = "todo-undo" ></button>
+                            <button id = "todo-delete"></button>
+                        </div>
+                    </li>
+            
+                </ul>
+            </div>
         </div>
     </div>
     <script src = "main.js"></script>
