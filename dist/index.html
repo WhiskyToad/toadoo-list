@@ -15,10 +15,10 @@
                 <div class="bar3"></div>
             </div>
         </div>
-        <div id = "add-item">
+        <form id = "add-item">
             <input type="text" id = "title-creator" placeholder="Add a new Task....">
-            <button type = "button" id = "item-creator" class = "form">Create!</button>
-        </div>
+            <button type = "button" id = "item-creator" class = "form">Task</button>
+        </form>
         <div id = "logo">
             <span>ToaDoo List</span>
         </div>
@@ -26,8 +26,7 @@
     <div id = "container">
         <div id = sidebar style = "width: 0px">
             <h1>Display:</h1>
-            <input type = "radio" name = "filter" value = "all" id = "filter-button" checked = "true">
-            <label>All</label>
+            <span id = 'all' class = 'filter-line'><img  id = 'all-image'><h2>ALL</h2></span>
             <div id = "filter-container">
                 
             </div>

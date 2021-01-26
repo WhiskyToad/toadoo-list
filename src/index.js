@@ -2,25 +2,19 @@
 ** POSSIBLE UPGRADE order list options
 figure out storage
 one function to create filter and another one to change selected?
-
 make it only run the function to generate if theres only a new filter
-somehow need to stop them getting unchekced
-and having all checked at the start
-clicking all is breaking it
+need to render all category every time
 */
 
-render();
+render('ALL');
 
-import {todoItems, itemCreator, deleteFromItems, changeItem } from "./items.js";
+import {todoItems, itemCreator, deleteFromItems, changeItem, categories } from "./items.js";
 
 //controls the functions to display the list
-export function render(){
-    console.log("test")
+export function render(filter){
     const container = document.getElementById("list");
     container.innerHTML = "";
-    createFilters();
-    //let checked = document.querySelectorAll('input[name="filter"]:checked').value;
-    //console.log(checked);
+    categoryRender(filter);
     if (todoItems.length > 0){
         for ( let i = 0; i < todoItems.length; i++){
             const bar = document.createElement("li");
@@ -30,6 +24,11 @@ export function render(){
             createDescription(bar, i);
             createCategory(bar, i);
             createOptions(bar, i);
+            if (filter != 'ALL'){
+                if (todoItems[i].category != filter){
+                    bar.style.display = 'none';
+                }
+            }
         }
     }
 }
@@ -90,40 +89,44 @@ function createOptions(bar, i){
     }
 }
 
-function createFilters(){
-    let filters = [];
-    filters = [];
+export function categoryRender(filterChoice){
+    let filter = filterChoice
+    const all = document.getElementById('all');
+    all.onclick = function(){
+        filter = 'ALL';
+        render(filter);
+    }
+    categories = categories.sort();
     const filterContainer = document.getElementById("filter-container");
     filterContainer.innerHTML = "";
-    for (let i = 0; i < todoItems.length; i++){
-        if (!filters.includes(todoItems[i].category)){
-            filters.push(todoItems[i].category)
-        }
+    const allFilterImg = document.getElementById('all-image');
+    if (filter === 'ALL'){
+        allFilterImg.setAttribute('src', './images/checked.jpeg')
+    }else{
+        allFilterImg.setAttribute('src', './images/unchecked.png')
     }
-    filters = filters.sort()
-    for (let i = 0; i < filters.length; i++){
-        const line = document.createElement("div");
-        const filterButton = document.createElement("input");
-        const filterLabel = document.createElement("label");
+    for (let i = 0; i < categories.length; i++){
+        const line = document.createElement("span");
+        const filterButton = document.createElement("img");
+        const filterLabel = document.createElement("h2");
         filterContainer.appendChild(line);
         line.appendChild(filterButton);
         line.appendChild(filterLabel);
-        filterButton.setAttribute("type", "radio");
-        filterButton.setAttribute("name", "filter")
-        filterButton.setAttribute("id", "filter-button")
-        filterButton.setAttribute("value", filters[i]);
-        filterLabel.innerHTML = `${filters[i]}`;
-        //const filterOption = document.querySelectorAll('#filter-button');
-        filterButton.forEach(option => option.addEventListener('click', function(){
-            filterOption.checked = true;
-            render()
-        }))
-}
+        line.setAttribute('id', categories[i]);
+        line.classList.add('filter-line'); 
+        filterLabel.innerHTML = categories[i]; 
+        if (filter === categories[i]){
+            filterButton.setAttribute('src', './images/checked.jpeg')
+        }else{
+            filterButton.setAttribute('src', './images/unchecked.png')
+        }
+        line.onclick = function(){
+            filter = categories[i];
+            render(filter)
+        }
+    }
 }
 
-function filterChoice(){
-
-}
 //showing/hiding sidebar
 const menu = document.querySelector("#menu");
 menu.addEventListener('click', () => {
@@ -136,7 +139,7 @@ menu.addEventListener('click', () => {
 })
 
 // Shows and hides submission form
-const formToggle = document.querySelectorAll(".form"); 
+const formToggle = document.querySelectorAll("#item-creator"); 
 formToggle.forEach(button => button.addEventListener('click', () => {
     if (document.getElementById('form-container').style.display === 'block'){
         document.getElementById('form-container').style.display = 'none';

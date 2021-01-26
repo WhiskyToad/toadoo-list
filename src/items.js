@@ -1,4 +1,4 @@
-import {render} from "./index.js";
+import {render, categoryRender} from "./index.js";
 
 //the array of todo's
 export let todoItems = [
@@ -6,14 +6,17 @@ export let todoItems = [
     description: "Look at me Morty! I'm in an example!!",
     priority: "red",
     status: "not-complete",
-    category: "Rick"
+    category: "RICK"
 }];
+
+export let categories = ['RICK'];
 
 //Checks form before push to factory function
 export function itemCreator(){
     let title = document.getElementById("title-creator").value;
     let description = document.getElementById("task-description").value;
     let category = document.getElementById("category-input").value;
+    category = category.toUpperCase();
     let status = "not-complete";
     let priority = "";
     if (document.getElementById("green").checked == true){
@@ -29,36 +32,39 @@ export function itemCreator(){
         alert("Your title is too long, 30 characters max")
     }else if (description.length == 0){
         alert("Ooops, you must enter a description!")
-    }else if (category.length == 0){
+    }if (category.length == 0){
         alert("Ooops, you must enter a category")
     }else if (category.length > 10){
         alert("Your Category is too long, 10 characters max.")
     }else {
+        if (!categories.includes(category)){
+            categories.push(category);
+        }
         todoItems.unshift(itemFactory(title, description, priority, status, category));
         document.getElementById('form-container').style.display = 'none';
         document.getElementById("title-creator").value = "";
         document.getElementById("task-description").value = "";
         document.getElementById("category-input").value = "";
-        render()
+        render('ALL')
 }
 }
+
 //factory function for creating todos
 function itemFactory(title, description, priority, status, category) {
     return { title, description, priority, status, category };
 }
 
-//delete function
+//delete function for items
 export function deleteFromItems(){
     todoItems.splice(this.classList, 1);
-    render();
+    render('ALL');
 }
 
 //marking an item complete
 export function changeItem(){
-    console.log("testchangeitem")
     if (todoItems[this.classList].status === "complete"){
         todoItems[this.classList].status = "not-complete"
     }else {todoItems[this.classList].status = "complete"}
-    render();
+    render('ALL');
 }
 
