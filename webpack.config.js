@@ -7,11 +7,3 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
 };
-
-const productionConfig = merge([
-  {
-    output: {
-      publicPath: "/toadoo-list"
-    },
-  },
-]);

@@ -105,7 +105,7 @@ export function categoryRender(filterChoice){
     filterContainer.innerHTML = "";
     const allFilterImg = document.getElementById('all-image');
     if (filter === 'ALL'){
-        allFilterImg.setAttribute('src', './images/checked.jpeg')
+        allFilterImg.setAttribute('src', './images/checked.png')
     }else{
         allFilterImg.setAttribute('src', './images/unchecked.png')
     }
@@ -120,7 +120,7 @@ export function categoryRender(filterChoice){
         line.classList.add('filter-line'); 
         filterLabel.innerHTML = categories[i]; 
         if (filter === categories[i]){
-            filterButton.setAttribute('src', './images/checked.jpeg')
+            filterButton.setAttribute('src', './images/checked.png')
         }else{
             filterButton.setAttribute('src', './images/unchecked.png')
         }
