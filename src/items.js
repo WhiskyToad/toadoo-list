@@ -1,4 +1,4 @@
-import {render, categoryRender} from "./index.js";
+import {render} from "./index.js";
 
 //the array of todo's
 export let todoItems = [
@@ -8,8 +8,6 @@ export let todoItems = [
     status: "not-complete",
     category: "RICK"
 }];
-
-export let categories = ['RICK'];
 
 //Checks form before push to factory function
 export function itemCreator(){
@@ -36,10 +34,7 @@ export function itemCreator(){
         alert("Ooops, you must enter a category")
     }else if (category.length > 10){
         alert("Your Category is too long, 10 characters max.")
-    }else {
-        if (!categories.includes(category)){
-            categories.push(category);
-        }
+    }
         todoItems.unshift(itemFactory(title, description, priority, status, category));
         document.getElementById('form-container').style.display = 'none';
         document.getElementById("title-creator").value = "";
@@ -47,7 +42,7 @@ export function itemCreator(){
         document.getElementById("category-input").value = "";
         render('ALL')
 }
-}
+
 
 //factory function for creating todos
 function itemFactory(title, description, priority, status, category) {

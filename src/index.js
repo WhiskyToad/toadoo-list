@@ -1,9 +1,8 @@
 /*NOTES
 ** POSSIBLE UPGRADE order list options
 figure out storage
-one function to create filter and another one to change selected?
-make it only run the function to generate if theres only a new filter
-need to render all category every time
+Change filter so it removes unused ones
+delete all completed option
 */
 
 render('ALL');
@@ -96,6 +95,11 @@ export function categoryRender(filterChoice){
         filter = 'ALL';
         render(filter);
     }
+    let categories = [];
+    for (let i =0; i < todoItems.length; i++){
+        if (!categories.includes(todoItems[i].category)){
+            categories.push(todoItems[i].category);
+    }}
     categories = categories.sort();
     const filterContainer = document.getElementById("filter-container");
     filterContainer.innerHTML = "";
